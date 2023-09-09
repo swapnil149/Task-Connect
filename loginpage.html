@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>TaskConnect - Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #E0A1AC;/* Set background color for body */
+        }
+        nav {
+            display: flex;
+            background-color: transparent;
+            align-items: center; /*vert align*/
+            justify-content: flex-end; /*makes nav ele. right aligned*/
+            white-space: nowrap; 
+        }
+        nav li {
+            padding-right: 20px;
+            display: inline; /*horizontal align*/
+        }
+        a { 
+            text-decoration: none;
+            color: #ffffff; 
+        }
+        .logo {
+            padding-left: 20px;
+            margin-right: auto; /*make logo left aligned*/
+        }
+        div {
+            color: #ffffff;
+            padding: 10px;
+        }
+        .container {
+            margin-top: 3px; /*add the small margin at top*/
+            background-image: linear-gradient(180deg, #E0A1AC, #FFCC15); /*gradient background*/
+            display: flex;
+            height: 100vh; /*spans 100% of vert. viewport*/
+            padding: 0px;
+            justify-content: center; 
+            align-items: center;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .button {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 10px 200px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+        }
+        .navbutton {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+        }       
+        .login-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column; /*waant the form inputs disp. vert.*/
+            align-items: flex-start;
+            flex: 1;
+        }   
+        .login-input {
+            padding: 10px 150px;
+            margin-bottom: 10px; /*adds space b/w form inputs*/
+            border: 1px solid #ccc;
+        }
+        .right-image {
+            top: 100px;
+            right: 0px;
+            height: 40vh;
+            padding: 100px;
+        }
+        .links {
+            white-space: nowrap; /* Prevent line breaks */
+          }
+          
+        .links a {
+            margin-right: 200px; /* Adjust this value to increase/decrease the space */
+        }
+        .logo {
+            padding-left: 20px;
+            margin-right: auto;
+            /*make logo left aligned*/
+        }
+        .icon {
+            height: 35px;
+            width: 35px;
+        }
+        .iconContainer {
+            display: flex;
+            align-items: center;
+        }
+          
+        @media (max-width: 768px) {
+            /*hide these elements*/
+            .hide-on-small-screen {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="logo iconContainer">
+                <li><a href="/">
+                    <img class="icon" src="https://pauljproche.github.io/taskConnectFinal/Images/logo.png" alt="company logo" />
+                </a></li>
+                <li class="hide-on-small-screen"><a href="/home">TaskConnect</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div>
+            <h2 style="margin-left: 20px;">Log in to Task Connect</h2>
+            <div style="margin-left: 20px;">
+                <h1>Welcome Back!</h1>
+                <form method = "post" action = "/loginAuth" class="login-form">
+                    <input type="email" class="login-input" placeholder="Email" id="email" name="email" required>
+                    <input type="password" class="login-input" placeholder="Password" id="password" name="password" required>
+                    <input type="submit" class="button" value="Login">
+                </form>
+                <p class="links">
+                    <a href="#">Forgot Password?</a>
+                    <a href="/signuppage">Sign Up</a>
+                </p>
+            </div>
+        </div>
+        <img src="https://pauljproche.github.io/taskConnectFinal/Images/loginimage.png" alt="Image" class="right-image">
+    </div>
+</body>
+</html>

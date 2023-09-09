@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "mongodb": "^5.7.0"
+  },
+  "name": "mongoaltas-nodejs",
+  "version": "1.0.0",
+  "main": "display_BASIC.js",
+  "scripts": {
+    "start": "node display_BASIC.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

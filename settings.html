@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="toggleswitch.css" rel="stylesheet">
+    <style>
+        .container {
+        margin-top: 3px; /*add the small margin at top*/
+        background-color:#2E4272;
+        display: flex;
+        height: 100vh; /*spans 100% of vert. viewport*/
+        padding: 0px;
+    }
+    .middle-col {
+        background-color:#ffffff;
+        flex-grow: 1;
+        padding: 20px;
+    }
+    body {
+            margin: 0;
+            background-color: #2B3A45; /* Set background color for body */
+        }
+        a { 
+            text-decoration: none;
+            color: #000000; 
+        }
+        /* div {
+            color: #000000;
+            padding: 10px;
+        } */
+        .container {
+            margin-top: 3px; /*add the small margin at top*/
+            background-color:#2E4272;
+            display: flex;
+            height: 100vh; /*spans 100% of vert. viewport*/
+            padding: 0px;
+        }
+        .left-col {
+            background-color:#2B3A45;
+            width: 200px;
+        }
+        .middle-col {
+            background-color: #EAEAEA;
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .right-col {
+            background-color:#D5D5D5;
+            width: 200px;
+        }
+        nav {
+            display: flex;
+            background-color: #EAEAEA;
+            align-items: center;
+            /*vert align*/
+            justify-content: flex-end;
+            /*makes nav ele. right aligned*/
+            white-space: nowrap;
+        }
+
+        nav li {
+            padding-right: 20px;
+            display: inline;
+            /*horizontal align*/
+        }
+
+        .logo {
+            padding-left: 20px;
+            margin-right: auto;
+            /*make logo left aligned*/
+        }
+
+        .icon {
+            height: 35px;
+            width: 35px;
+        }
+
+        .settingIcon {
+            width: 33px;
+            height: 30px;
+        }
+
+        .profileIcon {
+            height: 40px;
+            width: 40px;
+        }
+
+        .iconContainer {
+            display: flex;
+            align-items: center;
+        }
+
+    @media (max-width: 600px) {
+        /*hide these elements*/
+        .signup-form {
+            align-items: flex-start; 
+        }
+        .hide-on-small-screen {
+            display: none;
+        }
+    }
+    .currentEmail {
+        padding: 10px 50px;
+        margin-bottom: 10px; /*adds space b/w form inputs*/
+        border: 1px solid #ccc;
+    }
+    .currentPassword {
+        padding: 10px 50px;
+        margin-bottom: 10px; /*adds space b/w form inputs*/
+        border: 1px solid #ccc;
+    }
+    @media (max-width: 600px) {
+        /*hide these elements*/
+        .hide-on-small-screen {
+            display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+<div id="mainContainer">
+    <header id="header">
+        <nav>
+            <ul class="logo iconContainer">
+                <li><a href="/">
+                    <img class="icon" src="https://pauljproche.github.io/taskConnectFinal/Images/logo.png" alt="company logo" />
+                </a></li>
+                <!-- <li><a href="#">Friends</a></li>
+                <li class="hide-on-small-screen"><a href="#">Challenges</a></li> -->
+            </ul>
+    
+            <ul class="iconContainer">
+                <li class="hide-on-small-screen">
+                    <a href="/home">
+                        <img class="icon" src="https://pauljproche.github.io/taskConnectFinal/Images/homeIcon.png" alt="Home Icon" />
+                    </a>
+                </li>
+                <!-- <li class="hide-on-small-screen">
+                    <a href="#">
+                        <img class="icon" src="Images/DoorbellIcon.png" alt="Notifications" />
+                    </a>
+                </li> -->
+                <li class="hide-on-small-screen">
+                    <a href="/settings">
+                        <img class="settingIcon" src="https://pauljproche.github.io/taskConnectFinal/Images/settingIcon.png" alt="Settings" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/profilepage">
+                        <img class="profileIcon" src="https://pauljproche.github.io/taskConnectFinal/Images/profileIcon.png" alt="Profile" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="middle-col">
+            <h1>Settings Page</h1>
+            <form  method="post" action="/saveProfile">
+                        <h2>Change User Name</h2>
+                        <input type="text" id="username" name="username">
+                        <br/>
+                        <h2>Change Email</h2>
+                        <input type="text" id="email" name="email">
+                        <br/>
+                        <h2>Change Password</h2>
+                        <input type="text" id="password" name="password">
+                        <br/>
+                        <h2>Change Fullname</h2>
+                        <input type="text" id="password" name="password">
+                        <br/>
+                        <h2>Change Age</h2>
+                        <input type="text" id="password" name="password">
+                        <br/>
+                        <br/>
+                        <input type="submit" value="Make Changes">
+                    </form>
+            <!-- <div class="optionsSection">
+                <div>
+                    <h2>Create Profile</h2>
+                    <a href="/createProfile">Create your profile</a>
+                </div>
+                <div>
+                    <h2>Edit Profile Picture</h2>
+                    <div class="profilePictureContainer">
+                        <img class="profilePicture" src="current_picture.jpg" alt="Current Profile Picture">
+                    </div>
+                    <input type="file" id="profilePictureInput">
+                </div>
+                <div>
+                    <h2>Edit Username</h2>
+                    <div class="usernameContainer">
+                        <span class="username">johndoe</span>
+                    </div>
+                </div>
+                <div>
+                    <h2>Change Email</h2>
+                    <div class="emailContainer">
+                        <span class="email">johndoe@example.com</span>
+                    </div>
+                </div>
+            
+                <div>
+                    <h2>Change Password</h2>
+                    <div class="passwordContainer">
+                        <span class="password">*********</span>
+                    </div> 
+                </div>
+                -->
+                <div>
+                    <h2>Log Out</h2>
+                    <a href="/loginpage" class="button">Log Out</a>
+                </div>
+                <div>
+                    <h2>Share Activity</h2>
+                    <label for="shareToggle">Share personal tasks with friend</label>
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

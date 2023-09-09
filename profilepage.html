@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+            debugger;
+           $("#header").load("Header.html");
+        });
+     </script>
+    <style>
+    .container {
+        margin-top: 3px; /*add the small margin at top*/
+        background-color:#2E4272;
+        display: flex;
+        height: 100vh; /*spans 100% of vert. viewport*/
+        padding: 0px;
+    }
+    .middle-col {
+        background-color:#ffffff;
+        flex-grow: 1;
+        padding: 20px;
+    }
+    body {
+            margin: 0;
+            background-color: #2B3A45; /* Set background color for body */
+        }
+        a { 
+            text-decoration: none;
+            color: #000000; 
+        }
+        /* div {
+            color: #000000;
+            padding: 10px;
+        } */
+        .container {
+            margin-top: 3px; /*add the small margin at top*/
+            background-color:#2E4272;
+            display: flex;
+            height: 100vh; /*spans 100% of vert. viewport*/
+            padding: 0px;
+        }
+        .left-col {
+            background-color:#2B3A45;
+            width: 200px;
+        }
+        .middle-col {
+            background-color: #EAEAEA;
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .right-col {
+            background-color:#D5D5D5;
+            width: 200px;
+        }
+        nav {
+            display: flex;
+            background-color: #EAEAEA;
+            align-items: center;
+            /*vert align*/
+            justify-content: flex-end;
+            /*makes nav ele. right aligned*/
+            white-space: nowrap;
+        }
+
+        nav li {
+            padding-right: 20px;
+            display: inline;
+            /*horizontal align*/
+        }
+
+        .logo {
+            padding-left: 20px;
+            margin-right: auto;
+            /*make logo left aligned*/
+        }
+
+        .icon {
+            height: 35px;
+            width: 35px;
+        }
+
+        .settingIcon {
+            width: 33px;
+            height: 30px;
+        }
+
+        .profileIcon {
+            height: 40px;
+            width: 40px;
+        }
+
+        .iconContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        .currTaskHeading{
+            font-size: 40px;
+            margin: 44px 0px;
+        }
+        .cardContainer {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            margin-right: 10px;
+        }
+        .taskCard {
+            display: flex;
+            flex-direction: column;
+            width: 476px;
+            height: auto;
+            border-radius: 10px;
+            background: #FFF;
+            box-shadow: 1px 4px 7px 3px rgba(0, 0, 0, 0.25);
+            padding: 13px;
+            margin-bottom: 5%;
+        }
+        .taskCardHeader {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .taskHeading {
+            font-size: 29px;
+        }
+        .textStyle {
+            color: #000;
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .headingDate {
+            font-size: 20px;
+        }
+        .headingEle {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            flex-grow: 1;
+            align-items: center;
+        }
+        .headingDate {
+            margin-right: 25px;
+        }
+
+        .kebab-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        /* Menu Items Styles */
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            z-index: 1;
+            top: 35px;
+            right: 0px;
+        }
+
+        .menu-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .subtaskContainer {
+            display: flex;
+            flex-direction: column;
+        }
+        .subtask {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+        .subTaskLeft {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 166px;
+        }
+        .priorityLevel {
+            color: #F00;
+            font-size: 20px;
+            margin-right: 6px;
+            width: 21px;
+        }
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            background: #D9D9D9;
+        }
+        .subTaskText {
+            /* margin-right: 22px; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .subTaskRight {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .subTaskDate {
+            margin-right: 25px;
+        }
+        .addTask {
+            width: 105px;
+            height: 98px;
+            border-radius: 10px;
+            background-color: #2B3A45 !important;
+            box-shadow: 1px 4px 7px 3px rgba(0, 0, 0, 0.25);
+            background: url(https://pauljproche.github.io/taskConnectFinal/Images/addTaskPlusIcon.png) no-repeat center;
+            
+            background-size: 60px 60px;
+            cursor: pointer;
+        }
+        .editFormContainer {
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+            background: #2B3A45;
+            box-shadow: 1px 4px 7px 3px rgba(0, 0, 0, 0.25);
+            padding: 34px;
+        }
+        .font-20 {
+            font-size: 20px;
+        }
+
+        .crossIcon {
+            width: 26px;
+            height: 26px;
+            float: right;
+        }
+        label {
+            color: #FFF;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            font-family: Inter;
+        }
+        input[type=text], input[type=date]  {
+            width: 100%;
+            padding: 16px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 20px;
+            background: #FFF;
+            box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.20);
+            margin: 20px 0px;
+        }
+
+        input[type=submit], input[type=button] {
+            padding: 15px 35px;
+            margin: 8px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 20px;
+            background: #F13D3D;
+            box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.20);
+            color: #FFF;
+            font-size: 18px;
+        }
+
+        input[type=submit]:hover, input[type=button]:hover {
+            background-color: #45a049;
+        }
+        .excSymbol {
+            color: #F13D3D;
+        }
+        .choosePriority {
+            color: #FFF;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .dueDate {
+            display: block;
+            margin-top: 27px;
+        }
+        .radioLabel {
+            color: #000;
+            font-size: 18px;
+            border-radius: 20px;
+            background: #FFF;
+            box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.20);
+            padding: 12px 20px;
+            margin-right: 30px;
+        }
+        input[type=radio] {
+            height: 20px;
+            width: 20px;
+            margin-right: 20px;
+        }
+        .cancel {
+            float: right;
+        }
+
+        @media (max-width: 600px) {
+            /*hide these elements*/
+            .hide-on-small-screen {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="mainContainer">
+        <header id="header">
+            <nav>
+                <ul class="logo iconContainer">
+                    <li><a href="/">
+                        <img class="icon" src="https://pauljproche.github.io/taskConnectFinal/Images/logo.png" alt="company logo" />
+                    </a></li>
+                    <!-- <li><a href="#">Friends</a></li>
+                    <li class="hide-on-small-screen"><a href="#">Challenges</a></li> -->
+                </ul>
+        
+                <ul class="iconContainer">
+                    <li class="hide-on-small-screen">
+                        <a href="/home">
+                            <img class="icon" src="https://pauljproche.github.io/taskConnectFinal/Images/homeIcon.png" alt="Home Icon" />
+                        </a>
+                    </li>
+                    <!-- <li class="hide-on-small-screen">
+                        <a href="#">
+                            <img class="icon" src="Images/DoorbellIcon.png" alt="Notifications" />
+                        </a>
+                    </li> -->
+                    <li class="hide-on-small-screen">
+                        <a href="/settings">
+                            <img class="settingIcon" src="https://pauljproche.github.io/taskConnectFinal/Images/settingIcon.png" alt="Settings" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/profilepage">
+                            <img class="profileIcon" src="https://pauljproche.github.io/taskConnectFinal/Images/profileIcon.png" alt="Profile" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="middle-col">
+                <h1>My Public Tasks (for Jane Doe)</h1>
+                <div id = "bodyContainer">
+                        <div id = "cardContainer" class = "cardContainer">
+                        <!-- TASKCARD INSERTION POINT -->
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
