@@ -11,6 +11,7 @@ BACK END SCHEMA - URL to FigJam Design for DB:
 https://www.figma.com/file/RZyyNFR406ny7DqMyqAsPg/TaskConnect?type=whiteboard&node-id=0-1&t=HhODQJdzvhLHZKGN-0
 
 ------DATABASE USED------
+
 For the database management system, MongoDB is used, which is a scalable and efficient solution for thousands of tasks. By utilizing MongoDB, reliable storage and retrieval of task-related data, including user information, tasks, and rewards is ensured.
 
 ----Google Login API------
